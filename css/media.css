@@ -1,185 +1,179 @@
 @media (max-width: 768px) {
-
     .header-container {
-        padding: 15px;
-        justify-content: space-between;
+        padding: 12px 24px;
+        height: 64px;
     }
 
     .burger-menu {
-        display: block;
-        font-size: 1.5rem;
-        color: #ffffff;
-        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        order: 3;
+    }
+
+    .theme-toggle {
+        order: 1;
     }
 
     .menu-items {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100%;
-        background-color: #5d276b;
-        padding: 10px 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg-color);
+        padding: 100px 40px;
+        z-index: 999;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
     }
 
     .menu-items.active {
         display: flex;
+        animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .header-item {
-        padding: 15px;
-        text-align: center;
-        font-size: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .header-item:last-child {
+        font-size: 2rem;
+        font-family: 'Space Grotesk', sans-serif;
+        color: var(--text-primary);
+        font-weight: 600;
         border-bottom: none;
+        padding: 0;
     }
 
     .about-me {
-        margin-top: 70px;
-        padding: 30px 20px;
+        margin-top: 100px;
+        padding: 24px;
     }
 
     .container {
-        padding: 0 20px;
+        padding: 0;
     }
 
     .about-content {
-        flex-direction: column;
-        min-height: auto;
-        margin-bottom: 40px;
+        flex-direction: column-reverse;
+        gap: 40px;
+        margin-bottom: 60px;
     }
 
     .text-content {
         max-width: 100%;
         padding-right: 0;
-        margin-bottom: 30px;
+        text-align: center;
     }
 
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    h1.selling-title {
+        font-size: 3.5rem;
+        letter-spacing: -2px;
         text-align: center;
+        margin-bottom: 16px;
     }
 
     .intro-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: center;
+        font-size: 1.1rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .photo-container {
-        flex: 0 0 100%;
         width: 100%;
-        height: 350px;
+        height: 320px;
         border-radius: 24px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-
-    }
-
-    .photo-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
     }
 
     .tech-stack-container,
     .tools-container {
-        margin-top: 40px;
+        margin-top: 80px;
     }
 
     h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        letter-spacing: -1px;
     }
 
     .tech-stack,
     .tools-list {
-        gap: 30px;
+        gap: 24px;
     }
 
     .tech-item,
     .tool-item {
-        width: 100px;
+        width: 80px;
     }
 
     .tech-item img,
     .tool-item img {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+        width: 48px;
+        height: 48px;
+        filter: grayscale(0%) opacity(1);
     }
 
     .tech-item span,
     .tool-item span {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .portfolio {
-        margin-top: 50px;
-        padding: 30px 0 0;
-    }
-
-    .portfolio h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        margin-top: 100px;
     }
 
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
 
     .portfolio-item {
-        padding: 20px;
+        padding: 12px;
     }
 
     .portfolio-image {
         height: 200px;
-        border-radius: 10px;
-        margin-bottom: 15px;
     }
 
     .portfolio-item h3 {
-        font-size: 1.4rem;
-        margin-bottom: 15px;
-    }
-
-    .portfolio-links {
-        gap: 10px;
-        flex-direction: column;
+        font-size: 1.3rem;
+        padding: 0 8px;
     }
 
     .live-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        width: 100%;
+        padding: 14px 20px;
     }
 
     .footer {
-        padding: 20px 0;
+        padding: 60px 24px 40px;
+        margin-top: 100px;
     }
 
     .footer-links {
-        gap: 20px;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
     }
 
     .footer-link {
-        font-size: 1rem;
-        padding: 10px 0;
-        min-height: 60px;
-    }
-
-    .footer-link i {
         font-size: 1.2rem;
-        margin-bottom: 5px;
     }
 }
 
