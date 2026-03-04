@@ -364,16 +364,65 @@ h2 {
     font-weight: 500;
     font-size: 1rem;
     width: 100%;
-    background: var(--text-primary);
-    color: var(--bg-color);
+
+    /* Transparent or dark base so the glowing lines can act as border */
+    background: transparent;
+    color: var(--text-primary);
     border: none;
     transition: var(--transition-fast);
     overflow: hidden;
+    z-index: 1;
+    /* For stacking context */
+}
+
+/* The actual black background to cover the center */
+.live-btn::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    /* The "border" width is 1px */
+    background: var(--bg-color);
+    /* Deep black */
+    border-radius: inherit;
+    z-index: -1;
+    transition: background 0.3s;
+}
+
+/* The spinning border (Conic gradient spinning behind the button base) */
+.live-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent 30%);
+    z-index: -2;
+    animation: rotate 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 .live-btn:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.live-btn:hover::before {
+    animation-duration: 1s;
+    /* Spin faster on hover */
+    opacity: 1;
 }
 
 .live-btn .fa-github {
