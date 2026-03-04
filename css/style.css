@@ -50,6 +50,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 body::before {
     content: '';
     position: fixed;

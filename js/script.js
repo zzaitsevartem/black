@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleMenu = (show) => {
         menuItems.classList.toggle('active', show);
+        body.classList.toggle('menu-open', show); // Lock background scroll
         burgerIcon.className = show ? 'fas fa-times' : 'fas fa-bars';
     };
 
